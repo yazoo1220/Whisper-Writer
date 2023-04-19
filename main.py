@@ -3,6 +3,9 @@ import streamlit as st
 import whisper
 import pandas as pd
 import ffmpeg
+import numpy as np
+from io import BytesIO
+
 
 media = st.selectbox('media',['YouTube','Audio upload'])
 if media == 'YouTube':
@@ -10,7 +13,8 @@ if media == 'YouTube':
   st.video(video_url)
   file = YouTube(video_url).streams.filter(only_audio=True).first().download(filename="audio.mp4")
 else:
-  file = st.file_uploader(label='Upload Audio')
+  audio = st.file_uploader(label='Upload Audio')
+  audio_np = np.frombuffer(BytesIO(audio).read(), dtype=np.int16)
 
 whisper_model = whisper.load_model("base")
 
