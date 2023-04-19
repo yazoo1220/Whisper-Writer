@@ -19,7 +19,7 @@ else:
       # Get the file path to the temporary file
       file = os.path.join("temp", uploaded_file.name)
 
-whisper_model = whisper.load_model("medium")
+whisper_model = whisper.load_model("base")
 
 load = st.button('Load')
 
