@@ -15,7 +15,7 @@ import ffmpeg
 #   disable_youtube = True
 #   disable_audio = True
   
-video_url = 'https://www.youtube.com/watch?v=aircAruvnKk' #,disabled=disable_youtube)
+video_url = st.text_input(label='YouTube url','https://youtu.be/7EnmlzbocEU') #,disabled=disable_youtube)
 # audio_url = st.file_uploader(label='Upload Audio',disabled=disable_audio)
 st.video(video_url)
 
@@ -26,10 +26,11 @@ whisper_model = whisper.load_model("base")
 load = st.button('Load')
 
 if load:
-  transcription = whisper_model.transcribe(file)
-  # print as DataFrame
-  df = pd.DataFrame(transcription['segments'], columns=['start', 'end', 'text'])
-  st.download(label='download text file',data=text,file_name='whisper-writer-result.txt',mime='text/plain')
+  with st.spinner('loading...'):
+      transcription = whisper_model.transcribe(file)
+      # print as DataFrame
+      df = pd.DataFrame(transcription['segments'], columns=['start', 'end', 'text'])
+  st.download_button(label='download text file',data=text,file_name='whisper-writer-result.txt',mime='text/plain')
   st.dataframe(df)
 
   text = "\n".join(df["text"].to_list())
