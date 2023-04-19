@@ -8,13 +8,10 @@ media = st.selectbox('media',['YouTube','Audio upload'])
 if media == 'Youtube':
   disable_youtube = False
   disable_audio = True
-elif media == 'Audio upload':
+else:
   disable_audio = False
   disable_youtube = True
-else:
-  disable_youtube = True
-  disable_audio = True
-  
+
 video_url = st.text_input(label='YouTube url',value='https://youtu.be/7EnmlzbocEU',disabled=disable_youtube)
 audio_url = st.file_uploader(label='Upload Audio',disabled=disable_audio)
 st.video(video_url)
