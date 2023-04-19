@@ -14,7 +14,7 @@ import pandas as pd
 #   disable_youtube = True
 #   disable_audio = True
   
-video_url = 'https://youtu.be/svm8hlhF8PA' #,disabled=disable_youtube)
+video_url = 'https://www.youtube.com/watch?v=aircAruvnKk' #,disabled=disable_youtube)
 # audio_url = st.file_uploader(label='Upload Audio',disabled=disable_audio)
 st.video(video_url)
 
