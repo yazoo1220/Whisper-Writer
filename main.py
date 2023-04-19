@@ -15,7 +15,7 @@ import ffmpeg
 #   disable_youtube = True
 #   disable_audio = True
   
-video_url = st.text_input(label='YouTube url','https://youtu.be/7EnmlzbocEU') #,disabled=disable_youtube)
+video_url = st.text_input(label='YouTube url',value='https://youtu.be/7EnmlzbocEU') #,disabled=disable_youtube)
 # audio_url = st.file_uploader(label='Upload Audio',disabled=disable_audio)
 st.video(video_url)
 
