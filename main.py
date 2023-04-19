@@ -5,7 +5,7 @@ import pandas as pd
 import ffmpeg
 
 media = st.selectbox('media',['YouTube','Audio upload'])
-if media == 'Youtube':
+if media == 'YouTube':
   video_url = st.text_input(label='YouTube url',value='https://youtu.be/7EnmlzbocEU')
   st.video(video_url)
 else:
