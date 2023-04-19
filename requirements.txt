@@ -3,3 +3,4 @@ pytube
 streamlit
 ffmpeg-python
 tiktoken
+numpy
