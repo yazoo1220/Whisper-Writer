@@ -30,8 +30,9 @@ if load:
       transcription = whisper_model.transcribe(file)
       # print as DataFrame
       df = pd.DataFrame(transcription['segments'], columns=['start', 'end', 'text'])
+  text = "\n".join(df["text"].to_list())
   st.download_button(label='download text file',data=text,file_name='whisper-writer-result.txt',mime='text/plain')
   st.dataframe(df)
 
-  text = "\n".join(df["text"].to_list())
+  
 
