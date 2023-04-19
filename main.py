@@ -2,10 +2,10 @@ from pytube import YouTube
 import streamlit as st
 
 media = st.selectbox('media',['YouTube','Audio upload'])
-if media = 'Youtube':
+if media == 'Youtube':
   disable_youtube = False
   disable_audio = True
-elif media = 'Audio upload':
+elif media == 'Audio upload':
   disable_audio = False
   disable_youtube = True
 else:
