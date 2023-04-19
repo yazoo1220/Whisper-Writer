@@ -1,5 +1,7 @@
 from pytube import YouTube
 import streamlit as st
+import whisper
+import pandas as pd
 
 # media = st.selectbox('media',['YouTube','Audio upload'])
 # if media == 'Youtube':
@@ -18,18 +20,16 @@ st.video(video_url)
 
 file = YouTube(video_url).streams.filter(only_audio=True).first().download(filename="audio.mp4")
 
-import whisper
-
 whisper_model = whisper.load_model("base")
 
-transcription = whisper_model.transcribe(file)
+load = st.button('Load')
 
-import pandas as pd
+if load:
+  transcription = whisper_model.transcribe(file)
+  # print as DataFrame
+  df = pd.DataFrame(transcription['segments'], columns=['start', 'end', 'text'])
+  st.download(label='download text file',data=text,file_name='whisper-writer-result.txt',mime='text/plain')
+  st.dataframe(df)
 
-# print as DataFrame
-df = pd.DataFrame(transcription['segments'], columns=['start', 'end', 'text'])
-st.download(label='download text file',data=text,file_name='whisper-writer-result.txt',mime='text/plain')
-st.dataframe(df)
-
-text = "\n".join(df["text"].to_list())
+  text = "\n".join(df["text"].to_list())
 
