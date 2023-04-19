@@ -2,6 +2,7 @@ from pytube import YouTube
 import streamlit as st
 import whisper
 import pandas as pd
+import ffmpeg-python
 
 # media = st.selectbox('media',['YouTube','Audio upload'])
 # if media == 'Youtube':
