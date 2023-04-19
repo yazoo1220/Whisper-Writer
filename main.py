@@ -6,15 +6,14 @@ import ffmpeg
 
 media = st.selectbox('media',['YouTube','Audio upload'])
 if media == 'Youtube':
-  disable_youtube = False
-  disable_audio = True
+  video_url = st.text_input(label='YouTube url',value='https://youtu.be/7EnmlzbocEU')
+  st.video(video_url)
 else:
-  disable_audio = False
-  disable_youtube = True
+  audio_url = st.file_uploader(label='Upload Audio')
 
-video_url = st.text_input(label='YouTube url',value='https://youtu.be/7EnmlzbocEU',disabled=disable_youtube)
-audio_url = st.file_uploader(label='Upload Audio',disabled=disable_audio)
-st.video(video_url)
+
+
+
 
 file = YouTube(video_url).streams.filter(only_audio=True).first().download(filename="audio.mp4")
 
