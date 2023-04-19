@@ -12,7 +12,7 @@ import streamlit as st
 #   disable_youtube = True
 #   disable_audio = True
   
-video_url = st.text_input(label='YouTube URL',placeholder='https://youtu.be/svm8hlhF8PA',disabled=disable_youtube)
+video_url = st.text_input(label='YouTube URL',placeholder='https://youtu.be/svm8hlhF8PA') #,disabled=disable_youtube)
 # audio_url = st.file_uploader(label='Upload Audio',disabled=disable_audio)
 
 file = YouTube(video_url).streams.filter(only_audio=True).first().download(filename="audio.mp4")
