@@ -1,5 +1,5 @@
 openai-whisper
 pytube
 streamlit
-ffmpeg
+ffmpeg-python
 tiktoken
