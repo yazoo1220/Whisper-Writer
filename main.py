@@ -3,7 +3,7 @@ import streamlit as st
 import whisper
 import pandas as pd
 import ffmpeg
-
+import os
 
 media = st.selectbox('media',['YouTube','Audio upload'])
 if media == 'YouTube':
