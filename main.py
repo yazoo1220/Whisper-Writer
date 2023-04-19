@@ -1,19 +1,19 @@
 from pytube import YouTube
 import streamlit as st
 
-media = st.selectbox('media',['YouTube','Audio upload'])
-if media == 'Youtube':
-  disable_youtube = False
-  disable_audio = True
-elif media == 'Audio upload':
-  disable_audio = False
-  disable_youtube = True
-else:
-  disable_youtube = True
-  disable_audio = True
+# media = st.selectbox('media',['YouTube','Audio upload'])
+# if media == 'Youtube':
+#   disable_youtube = False
+#   disable_audio = True
+# elif media == 'Audio upload':
+#   disable_audio = False
+#   disable_youtube = True
+# else:
+#   disable_youtube = True
+#   disable_audio = True
   
 video_url = st.text_input(label='YouTube URL',placeholder='https://youtu.be/svm8hlhF8PA',disabled=disable_youtube)
-audio_url = st.file_uploader(label='Upload Audio',disabled=disable_audio)
+# audio_url = st.file_uploader(label='Upload Audio',disabled=disable_audio)
 
 file = YouTube(video_url).streams.filter(only_audio=True).first().download(filename="audio.mp4")
 
