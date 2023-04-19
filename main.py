@@ -4,7 +4,7 @@ import whisper
 import pandas as pd
 import ffmpeg
 
-# media = st.selectbox('media',['YouTube','Audio upload'])
+media = st.selectbox('media',['YouTube','Audio upload'])
 # if media == 'Youtube':
 #   disable_youtube = False
 #   disable_audio = True
